@@ -10,6 +10,11 @@ var contatore = 0;
 var bombaBeccata = false;
 //while che chiede all'utente numero all'utente
 while(bombaBeccata === false && (bombabcontatore < numeroMassimoTentativi) ) {
+  //chiedere al giocatore con che difficolta giocare da 0 a 2
+  var numeroRange = prompt('inserisci una difficoltà da tra 0, 1 e 2');
+  if (calcolaRangeNumeri(livello) === true ) {
+    numeroRange <= 0 && >= 2;
+  }
   // chiedere all'utente di inserire un numero
   var numeroUtente = parseInt(prompt('dimmi un numero da 1 a' + rangeMaxNumeri));
   if (verificaElementoArray(numeroUtente, arrayBombe) === true) {
@@ -56,6 +61,22 @@ function verificaElementoArray(elemento, listaArray) {
       inArray = true;
     }
   }
-
   return inArray;
+}
+
+//inserire una funzione in cui a seconda del numero inserito dall'utente
+// da 0 A 2 avremo una difficoltà maggiore o minore nel gioco
+
+function calcolaRangeNumeri(livello) {
+  var numeroRange;
+  switch (livello) {
+    case 1:
+      numeroRange = 80;
+      break;
+    case 2:
+      numeroRange = 50;
+      break;
+    default:
+      numeroRange = 100;
+  }
 }
